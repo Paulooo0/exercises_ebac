@@ -1,0 +1,115 @@
+@import "maps.less";
+
+@mobileBreakpoint: ~"(max-width: 767px)";
+@tabletBreakpoint: ~"(min-width: 767px) and (max-width: 1023px)";
+
+.d-block() {
+    display: block;
+}
+
+.w-100() {
+    width: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+body {
+    background-color: #colors[backgroundColor];
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1024px;
+    .w-100();
+    margin: 0 auto;
+}
+
+header {
+    background-color: #colors[headerBackgroundColor];
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu li {
+    font-weight: bold;
+    margin-left: 24px;
+}
+
+.menu li a {
+    color: #colors[textsColor];
+    text-decoration: none;
+}
+
+section {
+    padding: 56px 0;
+}
+
+.products {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 32.66%);
+    column-gap: 1%;
+    row-gap: 4%;
+    .w-100();
+
+    .product-item img {
+        .w-100();
+        border-radius: 16px;
+    }
+
+    .product-button {
+        .d-block();
+        background-color: #colors[buttonsColor];
+        color: #colors[textsColor];
+        text-align: center;
+        padding: 8px 0;
+        border-radius: 8px;
+        margin-top: 8px;
+        text-decoration: none;
+    }
+    
+    .product-button:hover {
+        background-color: #4cd137;
+    }
+}
+
+@media @tabletBreakpoint {
+    .container {
+        max-width: 80%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 48.5%);
+        column-gap: 3%;
+    }
+}
+
+@media @mobileBreakpoint {
+    .products {
+        .d-block();
+
+        .product-item  {
+            margin-bottom: 32px;
+        }
+    }
+}
